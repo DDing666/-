@@ -1,0 +1,3 @@
+divmod()函数(使用在两数相加)：divmod(divident, divisor)
+                             参数：divident被除数。divisor除数。
+                             显示 5 除以 2 的商和余数：x = divmod(5, 2)  --输出x--(2,1)
