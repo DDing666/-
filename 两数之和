@@ -18,22 +18,47 @@
 只会存在一个有效答案
 进阶：你可以想出一个时间复杂度小于 O(n2) 的算法吗？
 
-
+暴力枚举：(直接查找target-x在不在数组内或者数组内的x和y可不可以组成target，复杂度为 O(n2) )
+C++:
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        int i=0;
         for(int i=0;i<nums.size();i++)
         {
-           
-            for(int j=1;j<nums.size();j++)
+            for(int j=i+1;j<nums.size();j++)
             {
-                if(nums[i]+nums[j]==target&&i!=j)
-                return {i,j};
-               
+                if(nums[i]+nums[j]==target)
+                return {i,j};              
             };
-          
         };
         return {};
     };
 };
+
+Java:
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int n = nums.length;
+        for (int i = 0; i < n; ++i) {
+            for (int j = i + 1; j < n; ++j) {
+                if (nums[i] + nums[j] == target) {
+                    return new int[]{i, j};
+                }
+            }
+        }
+        return new int[0];
+    }
+}
+
+Python:
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        n = len(nums)
+        for i in range(n):
+            for j in range(i + 1, n):
+                if nums[i] + nums[j] == target:
+                    return [i, j]
+        
+        return []
+
+
