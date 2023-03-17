@@ -1,0 +1,28 @@
+'''
+python(一次遍历_自己):
+'''
+class Solution:
+    def summaryRanges(self, nums: List[int]) -> List[str]:
+        result = []
+        if nums == []:
+            return []
+        elif len(nums) == 1:
+            return ['%d'%nums[0]]
+        else:
+            left = nums[0]
+            right = nums[0]
+            for i in range(len(nums)):
+                if nums[i+1] == nums[i]+1 :
+                    right = nums[i+1]
+                else:
+                    if left != right: 
+                        result.append('%d->%d'%(left,right))
+                    else:
+                        result.append('%d'%(left))
+                    left = nums[i+1]
+                    right =  nums[i+1]
+                if i == len(nums)-2:
+                    nums.append(0)
+            return result
+
+
